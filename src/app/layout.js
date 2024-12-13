@@ -1,42 +1,28 @@
+import Link from 'next/link';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-// layout.js는 선택이다.(RootLayout 제외)
-// layout 이 필요없는 간단한 페이지에서는 생략 가능
-
-import Link from "next/link";
-import './globals.css'
-// 페이지 전체의 공통 구조를 렌더링 할때 사용
-
-// 부모컴포넌트
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ textAlign: "center" }}>
-        {/* <header style={{ marginTop: "50px" }}>공통 헤더</header> */}
-        {/* 자식컴포넌트가 랜더링 된다. */}
-        {/* {children} */}
-        {/* <footer style={{ marginTop: "50px" }}>공통 푸터</footer> */}
+      <body>
+        <Header />
+        {/* 페이지 콘텐츠 */}
+        <main>
+          {children}
+        </main>
+        
 
-        <h1><Link href="/">WEB</Link></h1>
-        <ol>
-          <li><Link href="/read/1"> HTML</Link> </li>
-          <li><Link href="/read/2">CSS</Link></li>
-          <li><Link href="/read/3">JS</Link> </li>
-          <li><Link href="/gallery"> image </Link></li>
-          <li><Link href="/itemList">ItemList(외부서버)</Link></li>
-          <li><Link href="/guestBookList">Guestbook(Spring 서버)</Link></li>
-          <li><Link href="/login">login(Spring 서버)</Link></li>
-          <li><Link href="/join">join(Spring 서버)</Link></li>
-        </ol>
-        <hr />
-        {children}
-        <hr />
-        <ul>
-          {/* /create 이면 create 폴더를 찾는다. 
-            (page.jsx(필수), layout.jsx(선택) 가 있어야한다.*/}
-          <li><Link href="/create">Create</Link></li>
-          <li>Update</li>
-          <li><input type="button" value="delete" /></li>
-        </ul>
+
+
+
+
+
+        
+        {/* <Footer /> */}
+
+
+       
       </body>
     </html>
   );
